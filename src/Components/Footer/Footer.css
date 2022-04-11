@@ -1,0 +1,10 @@
+.footer {
+  width: 100%;
+  height: fit-content;
+  padding: 3rem;
+  background: var(--light-theme-color);
+}
+
+.footer .footer-icon {
+  color: var(--dark-theme-color);
+}
