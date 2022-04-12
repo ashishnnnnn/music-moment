@@ -1,0 +1,116 @@
+.navigation-bar {
+  border: none;
+  position: fixed;
+  box-shadow: rgb(170, 170, 170) 0px 2px 10px 0px;
+  background-color: white;
+  height: 4rem;
+}
+
+.navigation-bar .search-bar {
+  height: 3rem;
+  border: 1px solid var(--light-dark-color);
+  width: 20rem;
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+}
+
+.navigation-bar .hemburgur {
+  display: none;
+}
+
+.navigation-bar .side-hidden-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  height: 100vh;
+  width: 15rem;
+  transition: all 0.3s ease;
+  color: var(--text-color);
+  box-shadow: 5px 0 5px -2px var(--dark-dark-color);
+}
+
+.navigation-bar .side-hidden-bar .cross {
+  color: white;
+}
+
+.side-hidden-bar .user-info {
+  background-color: var(--dark-background-color);
+}
+
+.search-bar .search-icon {
+  width: 3rem;
+}
+
+.search-bar .search-input {
+  width: calc(100% - 3rem);
+  border: none;
+  outline: 0px;
+}
+
+.navigation-bar .search-result {
+  position: absolute;
+  top: 3rem;
+  width: 100%;
+  padding: 2rem;
+  left: 0;
+  background-color: white;
+  box-shadow: 0px 3px 8px rgb(100, 100, 100);
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.navigation-bar .search-result::-webkit-scrollbar {
+  width: 10px;
+  background: var(--light-dark-color);
+}
+
+.navigation-bar .search-result::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--theme-color);
+}
+
+.navigation-bar .search-result-individual {
+  width: 100%;
+  border: 1px solid var(--theme-color);
+  border-radius: 10px;
+  box-shadow: 0 0 5px var(--theme-color);
+  cursor: pointer;
+}
+
+.navigation-bar .hidden-sidebar-menu .active {
+  color: var(--theme-color);
+}
+
+@media only screen and (max-width: 850px) {
+  .navigation-bar {
+    gap: 0.4rem;
+    padding: 1rem;
+  }
+
+  .navigation-bar .search-bar {
+    width: 95vw;
+    top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    outline: 1px solid var(--dark-dark-color);
+  }
+
+  .margin-req {
+    margin-bottom: 3rem;
+  }
+
+  .navigation-bar .hemburgur {
+    display: block;
+    cursor: pointer;
+    margin-right: 0.5rem;
+  }
+
+  .navigation-bar ul {
+    gap: 1.2rem;
+  }
+}

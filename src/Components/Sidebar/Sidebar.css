@@ -1,0 +1,16 @@
+.sidebar {
+  height: calc(100vh - 4rem);
+  width: 15rem;
+  border-right: 2px solid var(--theme-color);
+}
+
+.sidebar .active {
+  color: var(--theme-color);
+}
+
+@media only screen and (max-width: 850px) {
+  .sidebar {
+    height: calc(100vh - 7rem);
+    display: none;
+  }
+}
