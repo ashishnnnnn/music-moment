@@ -26,7 +26,6 @@ export const Login = () => {
         email: input_email,
         password: input_password,
       });
-      console.log(response);
       localStorage.setItem("token", response.data.encodedToken);
       setAuthState({ type: "TOKEN", payload: response.data.encodedToken });
       setAuthState({
