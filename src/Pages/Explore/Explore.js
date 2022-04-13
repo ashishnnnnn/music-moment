@@ -43,7 +43,7 @@ export const Explore = () => {
               filter_state.category === ele.toUpperCase() ? "active" : ""
             }`}
             onClick={() => {
-              setFilterState({ type: ele.toUpperCase() });
+              setFilterState({ type: "CATEGORY", payload: ele.toUpperCase() });
             }}
             key={ele}
           >
