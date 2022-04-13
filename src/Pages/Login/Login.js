@@ -20,6 +20,7 @@ export const Login = () => {
       input_email = email;
       input_password = password;
     }
+    console.log(input_email, password);
     try {
       const response = await axios.post(`/api/auth/login`, {
         email: input_email,
