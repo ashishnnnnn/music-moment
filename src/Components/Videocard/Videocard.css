@@ -1,0 +1,43 @@
+.body {
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.video-card {
+  width: 18rem;
+  border: 2px solid var(--theme-color);
+  border-radius: 10px;
+}
+
+.video-card .img-container {
+  height: auto;
+}
+
+.video-card .card {
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+
+.video-card .video-title {
+  width: 85%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.video-card .video-card-option {
+  width: 25px;
+  border-radius: 50%;
+}
+
+.video-card .video-card-option:hover {
+  background-color: var(--light-dark-color);
+}
+
+.video-card .channel-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}

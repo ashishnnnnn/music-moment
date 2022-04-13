@@ -1,6 +1,17 @@
 import "./Navbar.css";
 import { useState } from "react";
 
+import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useVideoList } from "../../Context/VideosContext";
+
+const pages_name = {
+  ["/"]: "Home",
+  ["/explore"]: "Explore",
+  ["/history"]: "History",
+  ["/watch-later"]: "Watch Later",
+  ["/playlist"]: "Playlist",
+};
+
 const side_menu = [
   {
     name: "Home",
@@ -26,7 +37,12 @@ const side_menu = [
 
 export const Navbar = () => {
   const [sideBarActive, setSideBarActive] = useState(false);
-  const [hiddenActiveSideBar, setHiddenActiveSideBar] = useState("Home");
+  const { setVideoList } = useVideoList();
+
+  const location = useLocation().pathname;
+  const hiddenActiveSideBar = pages_name[location];
+  let navigate = useNavigate();
+
   return (
     <>
       <div className="navigation-bar z-ind-2">
@@ -59,24 +75,32 @@ export const Navbar = () => {
             <div className=""></div>
             <div className="hidden-sidebar-menu pad-2 flex-column gap-2">
               {side_menu.map((ele) => (
-                <div
-                  onClick={() => {
-                    setHiddenActiveSideBar(ele.name);
-                  }}
+                <Link
+                  to={`/${ele.name === "Home" ? "" : ele.name.toLowerCase()}`}
                   key={ele.name}
                   className={`flex gap-1 ali-ce ${
                     hiddenActiveSideBar === ele.name ? "active" : ""
                   } cursor-pointer`}
+                  onClick={() => {
+                    if (ele.name === "Explore") {
+                      setVideoList([]);
+                    }
+                  }}
                 >
                   <i className={ele.icon_class + " fnt-1-5"}></i>
                   <p className="fnt-1-2">{ele.name}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
         )}
-        <div href="" className="nav-title">
-          <div className="logo flex-center-column">
+        <div className="nav-title">
+          <div
+            onClick={() => {
+              navigate("/");
+            }}
+            className="logo flex-center-column cursor-pointer"
+          >
             <span className="fnt-2 fnt-w-600 theme-color">Music</span>
             <span className="fnt-0-8 fnt-w-900">Moment</span>
           </div>
