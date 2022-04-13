@@ -6,19 +6,25 @@ import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import { FilterProvider } from "./Context/FilterContext";
 import { VideoListProvider } from "./Context/VideosContext";
+import { ToastProvider } from "./Context/ToastContext";
+import { AuthProvider } from "./Context/AuthContext";
 
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <FilterProvider>
-        <VideoListProvider>
-          <App />
-        </VideoListProvider>
-      </FilterProvider>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <ToastProvider>
+          <FilterProvider>
+            <VideoListProvider>
+              <App />
+            </VideoListProvider>
+          </FilterProvider>
+        </ToastProvider>
+      </Router>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
