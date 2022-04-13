@@ -1,5 +1,14 @@
 import "./Sidebar.css";
-import { useState } from "react";
+import { useLocation, Link } from "react-router-dom";
+import { useVideoList } from "../../Context/VideosContext";
+
+const pages_name = {
+  ["/"]: "Home",
+  ["/explore"]: "Explore",
+  ["/history"]: "History",
+  ["/watch-later"]: "Watch Later",
+  ["/playlist"]: "Playlist",
+};
 
 const side_menu = [
   {
@@ -25,22 +34,28 @@ const side_menu = [
 ];
 
 export const Sidebar = () => {
-  const [activeSideBar, setActiveSideBar] = useState("Home");
+  const location = useLocation().pathname;
+  const activeSideBar = pages_name[location];
+  const { setVideoList } = useVideoList();
+
   return (
     <div className="sidebar pad-2 flex-column gap-2">
       {side_menu.map((ele) => (
-        <div
-          onClick={() => {
-            setActiveSideBar(ele.name);
-          }}
+        <Link
+          to={`/${ele.name === "Home" ? "" : ele.name.toLowerCase()}`}
           key={ele.name}
           className={`flex gap-1 ali-ce ${
             activeSideBar === ele.name ? "active" : ""
           } cursor-pointer`}
+          onClick={() => {
+            if (ele.name === "Explore") {
+              setVideoList([]);
+            }
+          }}
         >
           <i className={ele.icon_class + " fnt-1-5"}></i>
           <p className="fnt-1-2">{ele.name}</p>
-        </div>
+        </Link>
       ))}
     </div>
   );

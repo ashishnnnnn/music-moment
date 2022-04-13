@@ -1,0 +1,27 @@
+.filter-options {
+  /* flex-wrap: wrap; */
+  overflow-x: auto;
+}
+
+.filter-options::-webkit-scrollbar {
+  height: 2px;
+  background: var(--light-dark-color);
+}
+
+.filter-options::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--theme-color);
+}
+
+.filter-item {
+  line-height: 1.2;
+  background-color: var(--light-dark-color);
+  border-radius: 10px;
+  border: 1px solid var(--theme-color);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.filter-item.active {
+  background-color: var(--dark-dark-color);
+}

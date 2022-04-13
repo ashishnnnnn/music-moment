@@ -1,5 +1,8 @@
 import "./Home.css";
 import { Sliders, Footer } from "../../Components";
+import { useNavigate } from "react-router-dom";
+import { useFilter } from "../../Context/FilterContext";
+import { useVideoList } from "../../Context/VideosContext";
 
 const cateogry_details = [
   {
@@ -25,8 +28,12 @@ const cateogry_details = [
 ];
 
 export const Home = () => {
+  let navigate = useNavigate();
+  const { setVideoList } = useVideoList();
+  const { setFilterState } = useFilter();
+
   return (
-    <div className="main-body pad-t-2">
+    <div className="main-body home-body pad-t-2">
       <Sliders />
       <div className="featured-head fnt-3 flex-center-column text-center fnt-w-500 gap-2 mar-b-2">
         <p>Featured Singers</p>
@@ -35,7 +42,15 @@ export const Home = () => {
       <div className="container">
         <div className="responsive-grid">
           {cateogry_details.map((ele, index) => (
-            <div className="card vertical-card" key={index}>
+            <div
+              onClick={() => {
+                setFilterState({ type: ele.name.toUpperCase() });
+                setVideoList([]);
+                navigate("/explore");
+              }}
+              className="card vertical-card"
+              key={index}
+            >
               <div className="text-img img-container">
                 <img src={ele.src} alt={ele.title} />
                 <div className="text-overlay text-center flex-center-column">

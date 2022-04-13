@@ -23,8 +23,8 @@ code {
   --dark-background-color: #111111ec;
   --light-theme-color: #bb453073;
   --medium-theme-color: #bb453098;
-  --light-dark-color: rgba(17, 17, 17, 0.171);
-  --dark-dark-color: rgba(48, 47, 47, 0.37);
+  --light-dark-color: rgba(17, 17, 17, 0.089);
+  --dark-dark-color: rgba(48, 47, 47, 0.575);
 
   /* ########## Text - color ##################### */
   --text-color: #444444;
@@ -666,4 +666,12 @@ button {
 
 .code-container {
   margin: 1rem auto;
+}
+
+.text-btn-padding {
+  padding: 0.3rem 1rem;
+}
+
+.color-white {
+  color: white;
 }

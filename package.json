@@ -6,10 +6,13 @@
     "dayjs": "^1.11.0",
     "jwt-decode": "^3.1.2",
     "jwt-encode": "^1.0.1",
+    "loading-animations-react": "^1.3.3",
     "miragejs": "^0.1.43",
     "mockman-js": "^1.1.5",
     "react": "^18.0.0",
+    "react-circle-loading-animation": "0.0.3",
     "react-dom": "^18.0.0",
+    "react-loadingg": "^1.7.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "uuid": "^8.3.2"
