@@ -14,8 +14,8 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <Router>
+    <Router>
+      <AuthProvider>
         <ToastProvider>
           <FilterProvider>
             <VideoListProvider>
@@ -23,8 +23,8 @@ ReactDOM.render(
             </VideoListProvider>
           </FilterProvider>
         </ToastProvider>
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
