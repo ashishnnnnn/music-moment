@@ -11,7 +11,8 @@ const pages_name = {
   ["/"]: "Home",
   ["/explore"]: "Explore",
   ["/history"]: "History",
-  ["/watch-later"]: "Watch Later",
+  ["/watch-later"]: "Watch-Later",
+  ["/liked"]: "Liked",
   ["/playlist"]: "Playlist",
 };
 
@@ -25,8 +26,12 @@ const side_menu = [
     icon_class: "fas fa-compass",
   },
   {
-    name: "Watch Later",
+    name: "Watch-Later",
     icon_class: "fas fa-clock",
+  },
+  {
+    name: "Liked",
+    icon_class: "fas fa-thumbs-up",
   },
   {
     name: "Playlist",

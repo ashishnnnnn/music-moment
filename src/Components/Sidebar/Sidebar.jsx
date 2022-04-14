@@ -9,6 +9,7 @@ const pages_name = {
   ["/explore"]: "Explore",
   ["/history"]: "History",
   ["/watch-later"]: "Watch-Later",
+  ["/liked"]: "Liked",
   ["/playlist"]: "Playlist",
 };
 
@@ -24,6 +25,10 @@ const side_menu = [
   {
     name: "Watch-Later",
     icon_class: "fas fa-clock",
+  },
+  {
+    name: "Liked",
+    icon_class: "fas fa-thumbs-up",
   },
   {
     name: "Playlist",

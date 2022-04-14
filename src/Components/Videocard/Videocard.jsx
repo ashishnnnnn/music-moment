@@ -1,10 +1,18 @@
 import "./Videocard.css";
+import { useNavigate } from "react-router-dom";
 
 export const Videocard = ({ ele }) => {
+  let navigate = useNavigate();
+
   return (
     <div className="video-card pad-0-5">
       <div className="card vertical-card">
-        <div className="text-img img-container">
+        <div
+          onClick={() => {
+            navigate(`/single-video/${ele._id}`);
+          }}
+          className="text-img img-container"
+        >
           <img src={ele.img_src} alt="song-image" />
           <div className="text-overlay flex-center-row">
             <i class="fas fa-play fnt-2 color-white"></i>
