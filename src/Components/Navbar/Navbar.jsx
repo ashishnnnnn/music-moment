@@ -3,6 +3,9 @@ import { useState } from "react";
 
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useVideoList } from "../../Context/VideosContext";
+import { useAuthContext } from "../../Context/AuthContext";
+import { getPageName } from "../../Utils/getPageName";
+import { useToast } from "../../Context/ToastContext";
 
 const pages_name = {
   ["/"]: "Home",
@@ -38,10 +41,12 @@ const side_menu = [
 export const Navbar = () => {
   const [sideBarActive, setSideBarActive] = useState(false);
   const { setVideoList } = useVideoList();
-
+  const { handleaddtoast } = useToast();
   const location = useLocation().pathname;
   const hiddenActiveSideBar = pages_name[location];
   let navigate = useNavigate();
+  const { auth_state, setAuthState } = useAuthContext();
+  const { user, token } = auth_state;
 
   return (
     <>
@@ -76,7 +81,7 @@ export const Navbar = () => {
             <div className="hidden-sidebar-menu pad-2 flex-column gap-2">
               {side_menu.map((ele) => (
                 <Link
-                  to={`/${ele.name === "Home" ? "" : ele.name.toLowerCase()}`}
+                  to={getPageName(ele.name, token)}
                   key={ele.name}
                   className={`flex gap-1 ali-ce ${
                     hiddenActiveSideBar === ele.name ? "active" : ""
@@ -114,7 +119,30 @@ export const Navbar = () => {
           </li>
 
           <li className="login-btn">
-            <div className="btn btn-primary cursor-pointer">Login</div>
+            {token ? (
+              <div
+                onClick={() => {
+                  handleaddtoast({
+                    message: `Bye Bye ${user.firstName}`,
+                    type: "alert-success",
+                  });
+                  setAuthState({ type: "TOKEN", payload: null });
+                  localStorage.removeItem("token");
+                }}
+                className="btn btn-primary cursor-pointer"
+              >
+                LogOut
+              </div>
+            ) : (
+              <div
+                onClick={(e) => {
+                  navigate("/login");
+                }}
+                className="btn btn-primary cursor-pointer"
+              >
+                Login
+              </div>
+            )}
           </li>
         </ul>
       </div>

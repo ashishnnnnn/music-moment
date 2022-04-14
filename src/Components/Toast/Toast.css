@@ -1,0 +1,50 @@
+.toast-message {
+  width: 85%;
+}
+.alert-container {
+  position: sticky;
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: absolute;
+  top: 15rem;
+  right: 0;
+  list-style: none;
+}
+
+.alert-container.display-none {
+  display: none;
+}
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert-text {
+  width: 80%;
+}
+
+.alert-cross {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.alert-warn {
+  color: #90531a;
+}
+
+.display-none {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .alert-container {
+    max-width: 15rem;
+  }
+  .alert {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}

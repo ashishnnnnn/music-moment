@@ -1,0 +1,49 @@
+.login-body {
+  height: 90vh;
+}
+
+.login-form {
+  box-shadow: 0 0 5px 2px var(--light-dark-color);
+  width: 25rem;
+  border-radius: 10px;
+}
+
+.input {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid var(--dark-background-color);
+}
+
+/* ############################################ CheckBox #################### */
+
+.custom-checkbox {
+  cursor: pointer;
+}
+
+.custom-checkbox .checkmark {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid var(--theme-color);
+  display: inline-block;
+  border-radius: 3px;
+  background: var(--theme-color)
+    url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png)
+    center/1250% no-repeat;
+  transition: background-size 0.2s ease;
+}
+
+.custom-checkbox input:checked + .checkmark {
+  background-size: 60%;
+  transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
+}
+
+.custom-checkbox input {
+  display: none;
+}
+
+@media only screen and (max-width: 650px) {
+  .login-form {
+    width: 19rem;
+    font-size: 1rem;
+  }
+}

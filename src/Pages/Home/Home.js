@@ -44,7 +44,10 @@ export const Home = () => {
           {cateogry_details.map((ele, index) => (
             <div
               onClick={() => {
-                setFilterState({ type: ele.name.toUpperCase() });
+                setFilterState({
+                  type: "CATEGORY",
+                  payload: ele.name.toUpperCase(),
+                });
                 setVideoList([]);
                 navigate("/explore");
               }}

@@ -1,12 +1,14 @@
 import "./Sidebar.css";
 import { useLocation, Link } from "react-router-dom";
 import { useVideoList } from "../../Context/VideosContext";
+import { useAuthContext } from "../../Context/AuthContext";
+import { getPageName } from "../../Utils/getPageName";
 
 const pages_name = {
   ["/"]: "Home",
   ["/explore"]: "Explore",
   ["/history"]: "History",
-  ["/watch-later"]: "Watch Later",
+  ["/watch-later"]: "Watch-Later",
   ["/playlist"]: "Playlist",
 };
 
@@ -20,7 +22,7 @@ const side_menu = [
     icon_class: "fas fa-compass",
   },
   {
-    name: "Watch Later",
+    name: "Watch-Later",
     icon_class: "fas fa-clock",
   },
   {
@@ -37,12 +39,13 @@ export const Sidebar = () => {
   const location = useLocation().pathname;
   const activeSideBar = pages_name[location];
   const { setVideoList } = useVideoList();
-
+  const { auth_state } = useAuthContext();
+  const { token } = auth_state;
   return (
     <div className="sidebar pad-2 flex-column gap-2">
       {side_menu.map((ele) => (
         <Link
-          to={`/${ele.name === "Home" ? "" : ele.name.toLowerCase()}`}
+          to={getPageName(ele.name, token)}
           key={ele.name}
           className={`flex gap-1 ali-ce ${
             activeSideBar === ele.name ? "active" : ""
