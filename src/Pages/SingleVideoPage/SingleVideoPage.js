@@ -4,21 +4,34 @@ import { useVideoList } from "../../Context/VideosContext";
 import { getCurrentVideo } from "../../Utils/getCurrentVideo";
 import { getOtherVideos } from "../../Utils/getOtherVideos";
 import { Videocard } from "../../Components";
+import { useRef } from "react";
+import ReactPlayer from "react-player";
 
 export const SingleVideoPage = () => {
   const { video_id } = useParams();
   const { video_list } = useVideoList();
   const curr_video = getCurrentVideo(video_list, video_id);
+  const videoPlayerRef = useRef();
   return (
     <div className="main-body single-video-body pad-2">
       <div className="video-container">
-        <iframe
-          src={`https://www.youtube.com/embed/${video_id}`}
-          title="YouTube video player"
-          frameborder="0"
+        <ReactPlayer
+          className="video-player"
+          ref={videoPlayerRef}
+          url={`https://www.youtube.com/embed/${video_id}`}
+          config={{
+            youtube: {
+              playerVars: { showinfo: 1 },
+            },
+          }}
+          controls
+          width="100%"
+          height="25rem"
+          title={curr_video.title}
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+          allowFullScreen
+        ></ReactPlayer>
         <div className="single-video-title fnt-1-5 fnt-w-500 mar-t-0-5">
           {curr_video?.title}
         </div>
@@ -35,7 +48,7 @@ export const SingleVideoPage = () => {
           >
             <path d="M19 15v-3h-2v3h-3v2h3v3h2v-3h3v-2h-.937zM4 7h11v2H4zm0 4h11v2H4zm0 4h8v2H4z"></path>
           </svg>
-          <p className="mar-r-auto">Add to Playlist</p>
+          <p className="mar-right-auto">Add to Playlist</p>
           <p>{curr_video?.views}M views</p>
         </div>
         <div className="mar-t-1 video-notes">
@@ -47,7 +60,12 @@ export const SingleVideoPage = () => {
         <div className="mar-t-1 add-notes">
           <p className="fnt-1-5 fnt-w-600 theme-color">Take Notes</p>
           <textarea className="pad-0-5 fnt-1-2" />
-          <i class="fas fa-plus-circle add-notes-btn theme-color fnt-2 cursor-pointer"></i>
+          <i
+            onClick={() => {
+              console.log(videoPlayerRef.current.getCurrentTime());
+            }}
+            class="fas fa-plus-circle add-notes-btn theme-color fnt-2 cursor-pointer"
+          ></i>
         </div>
       </div>
       <div className="side-video-list flex-column gap-1">
