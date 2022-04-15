@@ -19,7 +19,7 @@ export const Explore = () => {
     (async () => {
       setisloading(true);
       await (async () => {
-        return new Promise((resolve) => setTimeout(resolve, 2000));
+        return new Promise((resolve) => setTimeout(resolve, 1000));
       })();
       try {
         setisloading(false);

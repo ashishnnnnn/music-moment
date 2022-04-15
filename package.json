@@ -13,6 +13,7 @@
     "react-circle-loading-animation": "0.0.3",
     "react-dom": "^18.0.0",
     "react-loadingg": "^1.7.2",
+    "react-player": "^2.10.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "uuid": "^8.3.2"
