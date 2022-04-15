@@ -1,6 +1,13 @@
 import "./App.css";
 import { Navbar, Sidebar } from "./Components";
-import { Home, Explore, Login, Signup, SingleVideoPage } from "./Pages";
+import {
+  Home,
+  Explore,
+  Login,
+  Signup,
+  SingleVideoPage,
+  LikedPage,
+} from "./Pages";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -15,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/single-video/:video_id" element={<SingleVideoPage />} />
+          <Route path="/liked" element={<LikedPage />} />
         </Routes>
       </div>
     </div>

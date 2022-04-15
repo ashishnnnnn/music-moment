@@ -8,6 +8,7 @@ import { FilterProvider } from "./Context/FilterContext";
 import { VideoListProvider } from "./Context/VideosContext";
 import { ToastProvider } from "./Context/ToastContext";
 import { AuthProvider } from "./Context/AuthContext";
+import { UserDataProvider } from "./Context/UserDataContext";
 
 // Call make Server
 makeServer();
@@ -18,9 +19,11 @@ ReactDOM.render(
       <AuthProvider>
         <ToastProvider>
           <FilterProvider>
-            <VideoListProvider>
-              <App />
-            </VideoListProvider>
+            <UserDataProvider>
+              <VideoListProvider>
+                <App />
+              </VideoListProvider>
+            </UserDataProvider>
           </FilterProvider>
         </ToastProvider>
       </AuthProvider>
