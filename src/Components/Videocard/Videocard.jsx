@@ -52,7 +52,7 @@ export const Videocard = ({ ele }) => {
         <p>{ele.channel_name}</p>
       </div>
       {show_options && (
-        <div className="video-card-options-list pad-0-5 flex-center-row">
+        <div className="video-card-options-list pad-0-5 flex-center-row fnt-1-2">
           <ul className="flex-column gap-0-5">
             <li>
               {user_data.liked_video.find((item) => item?._id === ele._id) ? (

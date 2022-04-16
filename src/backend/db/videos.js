@@ -60,8 +60,7 @@ export const videos = [
     channel_name: "FilmyMirchi",
     img_src:
       "https://i.ytimg.com/vi/YLoYt8H7kjM/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD-bpsz03nGDHJgWCyw4sl1ypv_JQ",
-    channel_src:
-      "https://yt3.ggpht.com/8jFmGtPNgwKn5YWKveMtknreqbya3zsmjTaPJ99thWjoJ6zzHA8EZGuBY15OzxvgKfc7W6lFEco=s900-c-k-c0x00ffffff-no-rj",
+    channel_src: "https://liveradios.in/wp-content/uploads/filmymirchi.jpg",
   },
   {
     _id: "d5pEQX3yWy8",
@@ -72,8 +71,7 @@ export const videos = [
     channel_name: "FilmyMirchi",
     img_src:
       "https://i.ytimg.com/vi/d5pEQX3yWy8/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDYf3P8WDvyomkmk2pWjI9h_h5xUQ",
-    channel_src:
-      "https://yt3.ggpht.com/8jFmGtPNgwKn5YWKveMtknreqbya3zsmjTaPJ99thWjoJ6zzHA8EZGuBY15OzxvgKfc7W6lFEco=s900-c-k-c0x00ffffff-no-rj",
+    channel_src: "https://liveradios.in/wp-content/uploads/filmymirchi.jpg",
   },
   {
     _id: "dTu5dTEzVM4",
