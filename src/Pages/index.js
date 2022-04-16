@@ -9,3 +9,5 @@ export { Signup } from "./Signup/Signup";
 export { SingleVideoPage } from "./SingleVideoPage/SingleVideoPage";
 
 export { LikedPage } from "./LikedPage/LikedPage";
+
+export { WatchLater } from "./WatchLater/WatchLater";

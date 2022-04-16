@@ -2,8 +2,13 @@ import "./Videocard.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "../../Context/ToastContext";
-import { addLikeVideo } from "../../ApiCalls/addLikeVideo";
-import { removeLikeVideo } from "../../ApiCalls/removeLikeVideo";
+
+import {
+  addLikeVideo,
+  removeLikeVideo,
+  addWatchLater,
+  removeWatchLater,
+} from "../../ApiCalls";
 import { useUserData } from "../../Context/UserDataContext";
 import { useAuthContext } from "../../Context/AuthContext";
 
@@ -87,10 +92,36 @@ export const Videocard = ({ ele }) => {
               )}
             </li>
             <li>
-              <div className="flex mini-video-option gap-0-5">
-                <i className="far fa-heart cursor-pointer"></i>
-                <p className="">Add to Watch Later</p>
-              </div>
+              {user_data.watch_later.find((item) => item?._id === ele._id) ? (
+                <div className="flex mini-video-option gap-0-5">
+                  <i
+                    onClick={() => {
+                      removeWatchLater(ele._id, handleaddtoast, setUser_Data);
+                      setShowOptions((pre_state) => !pre_state);
+                    }}
+                    className="fas fa-heart cursor-pointer"
+                  ></i>
+                  <p>Remove from Watch Later</p>
+                </div>
+              ) : (
+                <div className="flex mini-video-option gap-0-5">
+                  <i
+                    onClick={() => {
+                      if (token) {
+                        addWatchLater(ele, handleaddtoast, setUser_Data);
+                        setShowOptions((pre_state) => !pre_state);
+                      } else {
+                        handleaddtoast({
+                          message: "Please First Login To Like Video",
+                          type: "alert-dang",
+                        });
+                      }
+                    }}
+                    className="far fa-heart cursor-pointer cursor-pointer"
+                  ></i>
+                  <p>Add to Watch Later</p>
+                </div>
+              )}
             </li>
             <li>
               <div className="flex mini-video-option gap-0-5">
