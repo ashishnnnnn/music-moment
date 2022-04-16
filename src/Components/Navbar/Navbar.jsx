@@ -6,6 +6,7 @@ import { useVideoList } from "../../Context/VideosContext";
 import { useAuthContext } from "../../Context/AuthContext";
 import { getPageName } from "../../Utils/getPageName";
 import { useToast } from "../../Context/ToastContext";
+import { useUserData } from "../../Context/UserDataContext";
 
 const pages_name = {
   ["/"]: "Home",
@@ -52,7 +53,7 @@ export const Navbar = () => {
   let navigate = useNavigate();
   const { auth_state, setAuthState } = useAuthContext();
   const { user, token } = auth_state;
-
+  const { user_data, setUser_Data } = useUserData();
   return (
     <>
       <div className="navigation-bar z-ind-2">
@@ -131,8 +132,10 @@ export const Navbar = () => {
                     message: `Bye Bye ${user.firstName}`,
                     type: "alert-success",
                   });
+
                   setAuthState({ type: "TOKEN", payload: null });
                   localStorage.removeItem("token");
+                  setUser_Data({ type: "RESET" });
                 }}
                 className="btn btn-primary cursor-pointer"
               >

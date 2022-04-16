@@ -1,7 +1,6 @@
 import "./App.css";
 import { Navbar, Sidebar } from "./Components";
-import { Home, Explore, Login, Signup, SingleVideoPage } from "./Pages";
-import { Routes, Route } from "react-router-dom";
+import { WebSiteRoutes } from "./WebSiteRoutes/WebSiteRoutes";
 
 function App() {
   return (
@@ -9,13 +8,7 @@ function App() {
       <Navbar />
       <div className="flex">
         <Sidebar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/single-video/:video_id" element={<SingleVideoPage />} />
-        </Routes>
+        <WebSiteRoutes />
       </div>
     </div>
   );

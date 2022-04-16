@@ -7,3 +7,5 @@ export { Login } from "./Login/Login";
 export { Signup } from "./Signup/Signup";
 
 export { SingleVideoPage } from "./SingleVideoPage/SingleVideoPage";
+
+export { LikedPage } from "./LikedPage/LikedPage";
