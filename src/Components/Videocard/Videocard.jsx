@@ -19,6 +19,28 @@ export const Videocard = ({ ele }) => {
   let navigate = useNavigate();
   const { auth_state } = useAuthContext();
   const { token } = auth_state;
+  const likeHandler = () => {
+    if (token) {
+      addLikeVideo(ele, handleaddtoast, setUser_Data);
+      setShowOptions((pre_state) => !pre_state);
+    } else {
+      handleaddtoast({
+        message: "Please First Login To Like Video",
+        type: "alert-dang",
+      });
+    }
+  };
+  const watchLaterHandler = () => {
+    if (token) {
+      addWatchLater(ele, handleaddtoast, setUser_Data);
+      setShowOptions((pre_state) => !pre_state);
+    } else {
+      handleaddtoast({
+        message: "Please First Login To Like Video",
+        type: "alert-dang",
+      });
+    }
+  };
   return (
     <div className="video-card pad-0-5">
       <div className="card vertical-card">
@@ -74,17 +96,7 @@ export const Videocard = ({ ele }) => {
               ) : (
                 <div className="flex mini-video-option gap-0-5">
                   <i
-                    onClick={() => {
-                      if (token) {
-                        addLikeVideo(ele, handleaddtoast, setUser_Data);
-                        setShowOptions((pre_state) => !pre_state);
-                      } else {
-                        handleaddtoast({
-                          message: "Please First Login To Like Video",
-                          type: "alert-dang",
-                        });
-                      }
-                    }}
+                    onClick={likeHandler}
                     className="far fa-thumbs-up cursor-pointer"
                   ></i>
                   <p>Add to Like Video</p>
@@ -106,17 +118,7 @@ export const Videocard = ({ ele }) => {
               ) : (
                 <div className="flex mini-video-option gap-0-5">
                   <i
-                    onClick={() => {
-                      if (token) {
-                        addWatchLater(ele, handleaddtoast, setUser_Data);
-                        setShowOptions((pre_state) => !pre_state);
-                      } else {
-                        handleaddtoast({
-                          message: "Please First Login To Like Video",
-                          type: "alert-dang",
-                        });
-                      }
-                    }}
+                    onClick={watchLaterHandler}
                     className="far fa-heart cursor-pointer cursor-pointer"
                   ></i>
                   <p>Add to Watch Later</p>
