@@ -19,7 +19,6 @@ export const addLikeVideo = async (video, handleaddtoast, setUser_Data) => {
       });
     }
   } catch (e) {
-    console.log("error occured: ", e);
     handleaddtoast({
       message: "Some error occured",
       type: "alert-dang",

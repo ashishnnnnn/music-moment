@@ -18,7 +18,6 @@ export const removeLikeVideo = async (id, handleaddtoast, setUser_Data) => {
       });
     }
   } catch (e) {
-    console.log("error occured: ", e);
     handleaddtoast({
       message: "Some error occured",
       type: "alert-dang",
