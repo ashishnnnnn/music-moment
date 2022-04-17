@@ -9,6 +9,7 @@ const initial_user_data_state = {
   liked_video: [],
   watch_later: [],
   playlist: [],
+  history: [],
 };
 
 const UserDataProvider = ({ children }) => {
