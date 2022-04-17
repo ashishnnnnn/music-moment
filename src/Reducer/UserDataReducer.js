@@ -30,8 +30,26 @@ export function UserDataReducer(state, action) {
         JSON.stringify(new_watch_later_after_remove)
       );
       return { ...state, watch_later: new_watch_later_after_remove };
+    case "ADD_TO_HISTORY":
+      const new_history_after_add = action.payload;
+      localStorage.setItem("my_history", JSON.stringify(new_history_after_add));
+      return { ...state, history: new_history_after_add };
+    case "REMOVE_FROM_HISTORY":
+      const new_history_after_remove = action.payload;
+      localStorage.setItem(
+        "my_history",
+        JSON.stringify(new_history_after_remove)
+      );
+      return { ...state, history: new_history_after_remove };
+    case "REMOVE_ALL_HISTORY":
+      const new_history_after_remove_all = action.payload;
+      localStorage.setItem(
+        "my_history",
+        JSON.stringify(new_history_after_remove_all)
+      );
+      return { ...state, history: new_history_after_remove_all };
     case "RESET":
-      return { liked_video: [], watch_later: [], playlist: [] };
+      return { liked_video: [], watch_later: [], playlist: [], history: [] };
     default:
       return state;
   }

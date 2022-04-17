@@ -1,19 +1,22 @@
 import axios from "axios";
 
-export const removeLikeVideo = async (id, handleaddtoast, setUser_Data) => {
+export const removeAllHistory = async (handleaddtoast, setUser_Data) => {
   const loginToken = localStorage.getItem("token");
   try {
     const response = await axios({
       method: "DELETE",
-      url: `/api/user/likes/${id}`,
+      url: `/api/user/history/all`,
       headers: {
         authorization: loginToken,
       },
     });
     if (response.status === 200) {
-      setUser_Data({ type: "REMOVE_FROM_LIKED", payload: response.data.likes });
+      setUser_Data({
+        type: "REMOVE_ALL_HISTORY",
+        payload: response.data.history,
+      });
       handleaddtoast({
-        message: `Removed from Liked Video`,
+        message: `Deleted the History`,
         type: "alert-success",
       });
     }

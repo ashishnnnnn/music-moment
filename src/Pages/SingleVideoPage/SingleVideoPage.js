@@ -4,14 +4,24 @@ import { useVideoList } from "../../Context/VideosContext";
 import { getCurrentVideo } from "../../Utils/getCurrentVideo";
 import { getOtherVideos } from "../../Utils/getOtherVideos";
 import { Videocard } from "../../Components";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import ReactPlayer from "react-player";
+import { useUserData } from "../../Context/UserDataContext";
+import { addHistory, removeThenAddHistory } from "../../ApiCalls";
 
 export const SingleVideoPage = () => {
   const { video_id } = useParams();
   const { video_list } = useVideoList();
   const curr_video = getCurrentVideo(video_list, video_id);
   const videoPlayerRef = useRef();
+  const { user_data, setUser_Data } = useUserData();
+  useEffect(() => {
+    if (user_data.history.find((item) => item?._id === video_id)) {
+      removeThenAddHistory(curr_video, setUser_Data);
+    } else {
+      addHistory(curr_video, setUser_Data);
+    }
+  }, [video_id]);
   return (
     <div className="main-body single-video-body pad-2">
       <div className="video-container">

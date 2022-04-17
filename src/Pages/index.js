@@ -11,3 +11,5 @@ export { SingleVideoPage } from "./SingleVideoPage/SingleVideoPage";
 export { LikedPage } from "./LikedPage/LikedPage";
 
 export { WatchLater } from "./WatchLater/WatchLater";
+
+export { History } from "./History/History";

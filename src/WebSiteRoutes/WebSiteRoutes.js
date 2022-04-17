@@ -6,6 +6,7 @@ import {
   SingleVideoPage,
   LikedPage,
   WatchLater,
+  History,
 } from "../Pages";
 import { Routes, Route } from "react-router-dom";
 
@@ -19,6 +20,7 @@ export const WebSiteRoutes = () => {
       <Route path="/single-video/:video_id" element={<SingleVideoPage />} />
       <Route path="/liked" element={<LikedPage />} />
       <Route path="/watch-later" element={<WatchLater />} />
+      <Route path="/history" element={<History />} />
     </Routes>
   );
 };
