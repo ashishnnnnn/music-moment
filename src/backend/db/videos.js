@@ -7,7 +7,7 @@ export const videos = [
   {
     _id: "aOliIfyH6vI",
     title:
-      "Atrangi Re: Rait Zara Si Full Video |@A. R. Rahman|Akshay, Dhanush,Sara,Arijit, Shashaa | Bhushan K",
+      "Atrangi Re: Raat Zara Si Full Video |@A. R. Rahman|Akshay, Dhanush,Sara,Arijit, Shashaa | Bhushan K",
     singer: "Arijit Singh",
     views: 33,
     channel_name: "T-series",
@@ -15,6 +15,8 @@ export const videos = [
       "https://i.ytimg.com/vi/aOliIfyH6vI/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDao_MsdVjZgN_HlvUY5uVy1jT40g",
     channel_src:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/T-series-logo.svg/1200px-T-series-logo.svg.png",
+    song_name:
+      "Taat Zara zi hai"  
   },
   {
     _id: "hoNb6HuNmU0",
@@ -27,6 +29,7 @@ export const videos = [
       "https://i.ytimg.com/vi/hoNb6HuNmU0/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB5ZOw_UiNaVX2gwPqExaZy1CKQBA",
     channel_src:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/T-series-logo.svg/1200px-T-series-logo.svg.png",
+    song_name: "Khairiyat Pucho"  
   },
   {
     _id: "8FMz_KT1mC4",
@@ -39,6 +42,7 @@ export const videos = [
       "https://i.ytimg.com/vi/8FMz_KT1mC4/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD8h7NDq6FgIWpVoniORpuDNMZHyg",
     channel_src:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/T-series-logo.svg/1200px-T-series-logo.svg.png",
+    song_name:"Jo Bheji Thi Duaa"  
   },
   {
     _id: "05TA9jNnCdU",
@@ -50,6 +54,7 @@ export const videos = [
       "https://i.ytimg.com/vi/05TA9jNnCdU/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBrHa7Rn9q376cFsPjSiTkGgh-LVg",
     channel_src:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/T-series-logo.svg/1200px-T-series-logo.svg.png",
+    song_name:"Galti Se Mistake"  
   },
   {
     _id: "YLoYt8H7kjM",
@@ -61,6 +66,7 @@ export const videos = [
     img_src:
       "https://i.ytimg.com/vi/YLoYt8H7kjM/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD-bpsz03nGDHJgWCyw4sl1ypv_JQ",
     channel_src: "https://liveradios.in/wp-content/uploads/filmymirchi.jpg",
+    song_name:"Arijit Singh Live Performance"
   },
   {
     _id: "d5pEQX3yWy8",
@@ -72,6 +78,7 @@ export const videos = [
     img_src:
       "https://i.ytimg.com/vi/d5pEQX3yWy8/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDYf3P8WDvyomkmk2pWjI9h_h5xUQ",
     channel_src: "https://liveradios.in/wp-content/uploads/filmymirchi.jpg",
+    song_name: "Dil Sambhal Ja Zara"
   },
   {
     _id: "dTu5dTEzVM4",
@@ -82,6 +89,7 @@ export const videos = [
     img_src:
       "https://i.ytimg.com/vi/dTu5dTEzVM4/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAhyUvyDqBKZPK5DBOkMd3o1BlDUA",
     channel_src: "https://www.yashrajfilms.com/img/yrf-logo-mobile.png",
+    song_name:"Tune Jo Na Kaha"
   },
   {
     _id: "A5pSnIwbpaM",
@@ -93,6 +101,7 @@ export const videos = [
     img_src:
       "https://i.ytimg.com/vi/A5pSnIwbpaM/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDzQCLebcATZ2XelcKQr737CPG5uA",
     channel_src: "https://www.yashrajfilms.com/img/yrf-logo-mobile.png",
+    song_name:"Saiyaara Rai Saiyaara"
   },
   {
     _id: "yHWPO9DDnsk",
@@ -105,6 +114,7 @@ export const videos = [
       "https://i.ytimg.com/vi/yHWPO9DDnsk/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBwaSDR7gd2ykR8Y44fGX7JGkFpcA",
     channel_src:
       "https://yt3.ggpht.com/ytc/AKedOLQb29pcnUPnEwJ3kIHBHVPXptRbELdoEkdDnxPRrQ=s176-c-k-c0x00ffffff-no-rj-mo",
+    song_name:"Bheegi Si Bhaagi Si"  
   },
   {
     _id: "6vKucgAeF_Q",
@@ -117,6 +127,7 @@ export const videos = [
       "https://i.ytimg.com/vi/6vKucgAeF_Q/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAQJNTNW7mmgqTQl05q2ja2pqZz0g",
     channel_src:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/T-series-logo.svg/1200px-T-series-logo.svg.png",
+    song_name:"Matarghasthi"  
   },
   {
     _id: "fbdxYoFb64g",
@@ -129,6 +140,7 @@ export const videos = [
       "https://i.ytimg.com/vi/fbdxYoFb64g/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCVF7UxoN5WDRw9T-klTcEf2wjAng",
     channel_src:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/T-series-logo.svg/1200px-T-series-logo.svg.png",
+    song_name:"Abhi Kuch Dino Se"  
   },
   {
     _id: "2mWaqsC3U7k",
@@ -140,6 +152,7 @@ export const videos = [
       "https://i.ytimg.com/vi/2mWaqsC3U7k/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBA6BrXYoRUB9e8-1I7NoIfXPn0lw",
     channel_src:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/T-series-logo.svg/1200px-T-series-logo.svg.png",
+    song_name:"Phir Se Ud Chala"  
   },
   {
     _id: "maKDIvUVkQo",
@@ -151,6 +164,7 @@ export const videos = [
       "https://i.ytimg.com/vi/maKDIvUVkQo/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBODub05cPHOZ9Q_yUgpC1GN_W3dQ",
     channel_src:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/T-series-logo.svg/1200px-T-series-logo.svg.png",
+    song_name:"Dil Kyun Yeh Mera Shor Kare "  
   },
   {
     _id: "Gg6NMU4ivXM",
@@ -163,6 +177,7 @@ export const videos = [
       "https://i.ytimg.com/vi/Gg6NMU4ivXM/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCtppbqIbCUcMTXkOaNl60ObU0ATw",
     channel_src:
       "https://scontent.frdp1-1.fna.fbcdn.net/v/t1.6435-1/70382225_1606289436174847_708295031152181248_n.png?stp=dst-png_p148x148&_nc_cat=1&ccb=1-5&_nc_sid=1eb0c7&_nc_ohc=W2jBxVl9ne0AX_hJ3rO&_nc_ht=scontent.frdp1-1.fna&oh=00_AT_9Xy1yGdfXdLACgYYRJ4ejAHqsEsnxvjU41r-PvUtl-w&oe=62794E6D",
+    song_name:"Kya Mujhe Pyar Hai"  
   },
   {
     _id: "cmMiyZaSELo",
@@ -174,6 +189,7 @@ export const videos = [
     img_src:
       "https://i.ytimg.com/vi/cmMiyZaSELo/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCWV9hje_MJtKJr-gariZOnw-8WeQ",
     channel_src: "https://www.yashrajfilms.com/img/yrf-logo-mobile.png",
+   song_name:"Khuda Jaane Kii" 
   },
   {
     _id: "V1fbOsHBlZE",
@@ -186,6 +202,7 @@ export const videos = [
       "https://i.ytimg.com/vi/V1fbOsHBlZE/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDweZxRbYMvAFVJ5g_DB207BTInyg",
     channel_src:
       "https://yt3.ggpht.com/ytc/AKedOLQb29pcnUPnEwJ3kIHBHVPXptRbELdoEkdDnxPRrQ=s176-c-k-c0x00ffffff-no-rj-mo",
+    song_name:"Haan Tu Hain"  
   },
   {
     _id: "Rq7tyOcVgLQ",
@@ -197,6 +214,7 @@ export const videos = [
       "https://i.ytimg.com/vi/Rq7tyOcVgLQ/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB3PZxZc07k5Z3EVWCRNzQWpWONfw",
     channel_src:
       "https://yt3.ggpht.com/ytc/AKedOLQb29pcnUPnEwJ3kIHBHVPXptRbELdoEkdDnxPRrQ=s176-c-k-c0x00ffffff-no-rj-mo",
+    song_name:"Kyon Naa Hum Tum"  
   },
   {
     _id: "a9Hxkc9YxGE",
@@ -208,6 +226,7 @@ export const videos = [
     img_src:
       "https://i.ytimg.com/vi/a9Hxkc9YxGE/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBB2Nd7WDFxOb8kO1m4LuTj4iaQxg",
     channel_src: "https://www.yashrajfilms.com/img/yrf-logo-mobile.png",
+    song_name:"Bulleya"
   },
   {
     _id: "sJW37INWnYk",
@@ -220,5 +239,6 @@ export const videos = [
       "https://i.ytimg.com/vi/sJW37INWnYk/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBVQ-KUszIY1drmNkdXsw1uhKFTPQ",
     channel_src:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/T-series-logo.svg/1200px-T-series-logo.svg.png",
+    song_name:"Jiyein Kyun"  
   },
 ];
