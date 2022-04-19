@@ -41,6 +41,37 @@
 .single-video-option .mar-right-auto {
   margin-right: auto;
 }
+
+.notes-container {
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+.notes-container .notes {
+  flex-wrap: wrap;
+  border: 1px solid var(--theme-color);
+  border-radius: 10px;
+}
+
+.notes-container .notes .notes-text {
+  width: 80%;
+  overflow-y: auto;
+}
+
+.notes-container .notes .notes-text::-webkit-scrollbar {
+  height: 3px;
+  background: var(--light-dark-color);
+}
+
+.notes-container .notes .notes-text::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--theme-color);
+}
+
+.notes-container .notes .notes-theme {
+  width: 15%;
+}
+
 @media only screen and (max-width: 850px) {
   .single-video-body {
     grid-template-columns: 1fr;
