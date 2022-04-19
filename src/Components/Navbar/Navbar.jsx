@@ -7,6 +7,7 @@ import { useAuthContext } from "../../Context/AuthContext";
 import { getPageName } from "../../Utils/getPageName";
 import { useToast } from "../../Context/ToastContext";
 import { useUserData } from "../../Context/UserDataContext";
+import { getSearchedResult } from "../../Utils/getSearchedResult";
 
 const pages_name = {
   ["/"]: "Home",
@@ -46,7 +47,7 @@ const side_menu = [
 
 export const Navbar = () => {
   const [sideBarActive, setSideBarActive] = useState(false);
-  const { setVideoList } = useVideoList();
+  const { video_list, setVideoList } = useVideoList();
   const { handleaddtoast } = useToast();
   const location = useLocation().pathname;
   const hiddenActiveSideBar = pages_name[location];
@@ -54,6 +55,9 @@ export const Navbar = () => {
   const { auth_state, setAuthState } = useAuthContext();
   const { user, token } = auth_state;
   const { user_data, setUser_Data } = useUserData();
+  const [isInputActive, setIsInputActive] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const searched_result = getSearchedResult(searchValue, video_list);
   return (
     <>
       <div className="navigation-bar z-ind-2">
@@ -120,7 +124,50 @@ export const Navbar = () => {
           <li>
             <div className="flex-align search-bar pad-1">
               <i className="fa fa-search mar-r-1"></i>
-              <input className="fnt-1-2 search-input mar-r-1" />
+              <input
+                onChange={(e) => {
+                  if (e.target.value.length > 0) {
+                    setIsInputActive(true);
+                  } else {
+                    setIsInputActive(false);
+                  }
+                  setSearchValue(e.target.value);
+                }}
+                className="fnt-1-2 search-input mar-r-1"
+                value={searchValue}
+              />
+              {isInputActive && searchValue.length > 0 && (
+                <i
+                  onClick={() => {
+                    setSearchValue("");
+                    setIsInputActive(false);
+                  }}
+                  className="fas fa-times cursor-pointer"
+                ></i>
+              )}
+              {isInputActive && (
+                <div className="search-result flex-column gap-1-5">
+                  {searched_result.length === 0 ? (
+                    <div className="search-result-individual pad-1 flex-center-row">
+                      <p>Oops there is no such element</p>
+                    </div>
+                  ) : (
+                    searched_result.map((ele) => (
+                      <div
+                        className="search-result-individual pad-1 flex-center-row"
+                        key={ele._id}
+                        onClick={() => {
+                          navigate(`/single-video/${ele._id}`);
+                          setIsInputActive(false);
+                          setSearchValue("");
+                        }}
+                      >
+                        <p>{ele.song_name}</p>
+                      </div>
+                    ))
+                  )}
+                </div>
+              )}
             </div>
           </li>
 
