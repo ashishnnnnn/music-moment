@@ -48,6 +48,20 @@ export const Videocard = ({ ele }) => {
       });
     }
   };
+
+  const removFromPlaylistHnalder = async () => {
+    await removeVideoFromPlaylist(
+      location.split("/")[2],
+      ele._id,
+      setUser_Data
+    );
+    handleaddtoast({
+      message: "Video Removed from playlist",
+      type: "alert-success",
+    });
+    setShowOptions((pre_state) => !pre_state);
+  };
+
   return (
     <div className="video-card pad-0-5">
       <div className="card vertical-card">
@@ -113,18 +127,7 @@ export const Videocard = ({ ele }) => {
                   <li>
                     <div className="flex mini-video-option gap-0-5">
                       <i
-                        onClick={async () => {
-                          await removeVideoFromPlaylist(
-                            location.split("/")[2],
-                            ele._id,
-                            setUser_Data
-                          );
-                          handleaddtoast({
-                            message: "Video Removed from playlist",
-                            type: "alert-success",
-                          });
-                          setShowOptions((pre_state) => !pre_state);
-                        }}
+                        onClick={removFromPlaylistHnalder}
                         className="fas fa-trash cursor-pointer"
                       ></i>
                       <p>Remove from Playlist</p>

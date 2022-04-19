@@ -58,16 +58,16 @@ export function UserDataReducer(state, action) {
     case "ADD_VIDEO_TO_PLAYLIST":
       const playlist_to_change = action.payload;
 
-      const new_playlist_after_SingleVideoAdd = state.playlist.map((ele) =>
+      const newPlaylistAfterSingleVideoAdd = state.playlist.map((ele) =>
         ele._id === playlist_to_change._id
           ? { ...playlist_to_change }
           : { ...ele }
       );
       localStorage.setItem(
         "my_playlist",
-        JSON.stringify(new_playlist_after_SingleVideoAdd)
+        JSON.stringify(newPlaylistAfterSingleVideoAdd)
       );
-      return { ...state, playlist: new_playlist_after_SingleVideoAdd };
+      return { ...state, playlist: newPlaylistAfterSingleVideoAdd };
 
     case "REMOVE_PLAYLIST":
       const playlist_to_remove = action.payload;
