@@ -59,6 +59,7 @@ export const SingleVideoPage = () => {
     }
   }, [video_id]);
   const addNotesHandler = () => {
+    setNotesText("");
     const time_in_sec = Math.floor(videoPlayerRef.current.getCurrentTime());
     if (notesText.length > 4) {
       if (videoNotesData[video_id]) {
