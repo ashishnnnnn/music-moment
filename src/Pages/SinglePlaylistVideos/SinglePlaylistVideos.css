@@ -1,0 +1,4 @@
+.single-playlist-video {
+  height: fit-content;
+  flex-wrap: wrap;
+}
