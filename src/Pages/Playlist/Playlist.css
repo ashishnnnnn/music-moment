@@ -1,0 +1,17 @@
+.no-playlist {
+  width: 100%;
+  height: 20rem;
+}
+
+.playlist {
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.playlist .single-playlist {
+  min-width: 18rem;
+  border: 2px solid var(--theme-color);
+  border-radius: 10px;
+  height: fit-content;
+  background-color: var(--light-dark-color);
+}

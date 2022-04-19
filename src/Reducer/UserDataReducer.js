@@ -48,6 +48,50 @@ export function UserDataReducer(state, action) {
         JSON.stringify(new_history_after_remove_all)
       );
       return { ...state, history: new_history_after_remove_all };
+    case "ADD_TO_PLAYLIST":
+      const new_playlist_after_add = action.payload;
+      localStorage.setItem(
+        "my_playlist",
+        JSON.stringify(new_playlist_after_add)
+      );
+      return { ...state, playlist: new_playlist_after_add };
+    case "ADD_VIDEO_TO_PLAYLIST":
+      const playlist_to_change = action.payload;
+
+      const new_playlist_after_SingleVideoAdd = state.playlist.map((ele) =>
+        ele._id === playlist_to_change._id
+          ? { ...playlist_to_change }
+          : { ...ele }
+      );
+      localStorage.setItem(
+        "my_playlist",
+        JSON.stringify(new_playlist_after_SingleVideoAdd)
+      );
+      return { ...state, playlist: new_playlist_after_SingleVideoAdd };
+
+    case "REMOVE_PLAYLIST":
+      const playlist_to_remove = action.payload;
+      const new_playlist_after_remove = state.playlist.filter(
+        (ele) => ele._id !== playlist_to_remove._id
+      );
+      localStorage.setItem(
+        "my_playlist",
+        JSON.stringify(new_playlist_after_remove)
+      );
+      return { ...state, playlist: new_playlist_after_remove };
+    case "REMOVE_VIDEO_FROM_PLAYLIST":
+      const playlist_to_change_after_remove = action.payload;
+
+      const new_playlist_after_SingleVideoRemove = state.playlist.map((ele) =>
+        ele._id === playlist_to_change_after_remove._id
+          ? { ...playlist_to_change_after_remove }
+          : { ...ele }
+      );
+      localStorage.setItem(
+        "my_playlist",
+        JSON.stringify(new_playlist_after_SingleVideoRemove)
+      );
+      return { ...state, playlist: new_playlist_after_SingleVideoRemove };
     case "RESET":
       return { liked_video: [], watch_later: [], playlist: [], history: [] };
     default:

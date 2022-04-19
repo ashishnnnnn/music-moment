@@ -4,17 +4,21 @@ import { useState } from "react";
 import { useToast } from "../../Context/ToastContext";
 import { useLocation } from "react-router";
 
+import { PlaylistModal } from "..";
+
 import {
   addLikeVideo,
   removeLikeVideo,
   addWatchLater,
   removeWatchLater,
   removeSingleHistory,
+  removeVideoFromPlaylist,
 } from "../../ApiCalls";
 import { useUserData } from "../../Context/UserDataContext";
 import { useAuthContext } from "../../Context/AuthContext";
 
 export const Videocard = ({ ele }) => {
+  const [show_playlist_modal, setShowPlaylistModal] = useState(false);
   const [show_options, setShowOptions] = useState(false);
   const { user_data, setUser_Data } = useUserData();
   const { handleaddtoast } = useToast();
@@ -39,7 +43,7 @@ export const Videocard = ({ ele }) => {
       setShowOptions((pre_state) => !pre_state);
     } else {
       handleaddtoast({
-        message: "Please First Login To Like Video",
+        message: "Please First Login To Add To Watch Later",
         type: "alert-dang",
       });
     }
@@ -103,58 +107,117 @@ export const Videocard = ({ ele }) => {
               </li>
             </ul>
           ) : (
-            <ul className="flex-column gap-0-5">
-              <li>
-                {user_data.liked_video.find((item) => item?._id === ele._id) ? (
-                  <div className="flex mini-video-option gap-0-5">
-                    <i
-                      onClick={() => {
-                        removeLikeVideo(ele._id, handleaddtoast, setUser_Data);
-                        setShowOptions((pre_state) => !pre_state);
-                      }}
-                      className="fas fa-thumbs-up cursor-pointer"
-                    ></i>
-                    <p>Remove from Liked Video</p>
-                  </div>
-                ) : (
-                  <div className="flex mini-video-option gap-0-5">
-                    <i
-                      onClick={likeHandler}
-                      className="far fa-thumbs-up cursor-pointer"
-                    ></i>
-                    <p>Add to Like Video</p>
-                  </div>
-                )}
-              </li>
-              <li>
-                {user_data.watch_later.find((item) => item?._id === ele._id) ? (
-                  <div className="flex mini-video-option gap-0-5">
-                    <i
-                      onClick={() => {
-                        removeWatchLater(ele._id, handleaddtoast, setUser_Data);
-                        setShowOptions((pre_state) => !pre_state);
-                      }}
-                      className="fas fa-heart cursor-pointer"
-                    ></i>
-                    <p>Remove from Watch Later</p>
-                  </div>
-                ) : (
-                  <div className="flex mini-video-option gap-0-5">
-                    <i
-                      onClick={watchLaterHandler}
-                      className="far fa-heart cursor-pointer cursor-pointer"
-                    ></i>
-                    <p>Add to Watch Later</p>
-                  </div>
-                )}
-              </li>
-              <li>
-                <div className="flex mini-video-option gap-0-5">
-                  <i className="fas fa-plus cursor-pointer"></i>
-                  <p>Add to Playlist</p>
-                </div>
-              </li>
-            </ul>
+            <>
+              {location.substring(0, 5) === "/play" ? (
+                <ul className="flex-column gap-0-5">
+                  <li>
+                    <div className="flex mini-video-option gap-0-5">
+                      <i
+                        onClick={async () => {
+                          await removeVideoFromPlaylist(
+                            location.split("/")[2],
+                            ele._id,
+                            setUser_Data
+                          );
+                          handleaddtoast({
+                            message: "Video Removed from playlist",
+                            type: "alert-success",
+                          });
+                          setShowOptions((pre_state) => !pre_state);
+                        }}
+                        className="fas fa-trash cursor-pointer"
+                      ></i>
+                      <p>Remove from Playlist</p>
+                    </div>
+                  </li>
+                </ul>
+              ) : (
+                <ul className="flex-column gap-0-5">
+                  <li>
+                    {user_data.liked_video.find(
+                      (item) => item?._id === ele._id
+                    ) ? (
+                      <div className="flex mini-video-option gap-0-5">
+                        <i
+                          onClick={() => {
+                            removeLikeVideo(
+                              ele._id,
+                              handleaddtoast,
+                              setUser_Data
+                            );
+                            setShowOptions((pre_state) => !pre_state);
+                          }}
+                          className="fas fa-thumbs-up cursor-pointer"
+                        ></i>
+                        <p>Remove from Liked Video</p>
+                      </div>
+                    ) : (
+                      <div className="flex mini-video-option gap-0-5">
+                        <i
+                          onClick={likeHandler}
+                          className="far fa-thumbs-up cursor-pointer"
+                        ></i>
+                        <p>Add to Like Video</p>
+                      </div>
+                    )}
+                  </li>
+                  <li>
+                    {user_data.watch_later.find(
+                      (item) => item?._id === ele._id
+                    ) ? (
+                      <div className="flex mini-video-option gap-0-5">
+                        <i
+                          onClick={() => {
+                            removeWatchLater(
+                              ele._id,
+                              handleaddtoast,
+                              setUser_Data
+                            );
+                            setShowOptions((pre_state) => !pre_state);
+                          }}
+                          className="fas fa-heart cursor-pointer"
+                        ></i>
+                        <p>Remove from Watch Later</p>
+                      </div>
+                    ) : (
+                      <div className="flex mini-video-option gap-0-5">
+                        <i
+                          onClick={watchLaterHandler}
+                          className="far fa-heart cursor-pointer cursor-pointer"
+                        ></i>
+                        <p>Add to Watch Later</p>
+                      </div>
+                    )}
+                  </li>
+                  <li>
+                    <div className="flex mini-video-option gap-0-5">
+                      <i
+                        onClick={() => {
+                          if (token) {
+                            setShowPlaylistModal((pre_state) => !pre_state);
+                          } else {
+                            handleaddtoast({
+                              message:
+                                "Please First Login To Do Playlist operation",
+                              type: "alert-dang",
+                            });
+                          }
+                        }}
+                        className="fas fa-plus cursor-pointer"
+                      ></i>
+                      <p>Add to Playlist</p>
+                    </div>
+                    {show_playlist_modal && (
+                      <PlaylistModal
+                        video={ele}
+                        toggle_modal={setShowPlaylistModal}
+                        toggle_option={setShowOptions}
+                      />
+                    )}
+                  </li>
+                </ul>
+              )}
+            </>
           )}
         </div>
       )}

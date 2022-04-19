@@ -9,3 +9,5 @@ export { Footer } from "./Footer/Footer";
 export { Videocard } from "./Videocard/Videocard";
 
 export { Toast } from "./Toast/Toast";
+
+export { PlaylistModal } from "./PlalistModal/PlaylistModal";
