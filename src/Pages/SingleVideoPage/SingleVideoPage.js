@@ -17,6 +17,7 @@ import {
   removeWatchLater,
 } from "../../ApiCalls";
 import { PlaylistModal } from "../../Components";
+import { useVideoNotes } from "../../Context/VideoNotesContext";
 
 export const SingleVideoPage = () => {
   const { video_id } = useParams();
@@ -28,6 +29,8 @@ export const SingleVideoPage = () => {
   const { auth_state } = useAuthContext();
   const { token } = auth_state;
   const [show_modal, setShowModal] = useState(false);
+  const { videoNotesData, setVideoNotesData } = useVideoNotes();
+  const [notesText, setNotesText] = useState("");
   const likeHandler = (video) => {
     if (token) {
       addLikeVideo(video, handleaddtoast, setUser_Data);
@@ -55,6 +58,48 @@ export const SingleVideoPage = () => {
       addHistory(curr_video, setUser_Data);
     }
   }, [video_id]);
+  const addNotesHandler = () => {
+    setNotesText("");
+    const time_in_sec = Math.floor(videoPlayerRef.current.getCurrentTime());
+    if (notesText.length > 4) {
+      if (videoNotesData[video_id]) {
+        setVideoNotesData({
+          type: "ADD_NOTES_TO_PRESENT_VIDEO_NOTES",
+          payload: {
+            _id: video_id,
+            notes: {
+              time: `${Math.floor(time_in_sec / 60)} Min ${
+                time_in_sec % 60
+              } Sec`,
+              text: notesText,
+            },
+          },
+        });
+      } else {
+        setVideoNotesData({
+          type: "ADD_NEW_VIDEO_NOTES",
+          payload: {
+            _id: video_id,
+            notes: {
+              time: `${Math.floor(time_in_sec / 60)} Min ${
+                time_in_sec % 60
+              } Sec`,
+              text: notesText,
+            },
+          },
+        });
+      }
+      handleaddtoast({
+        message: "Notes Added",
+        type: "alert-success",
+      });
+    } else {
+      handleaddtoast({
+        message: "Notes length should be greater than 3",
+        type: "alert-dang",
+      });
+    }
+  };
   return (
     <div className="main-body single-video-body pad-2">
       <div className="video-container">
@@ -146,16 +191,41 @@ export const SingleVideoPage = () => {
         </div>
         <div className="mar-t-1 video-notes">
           <p className="fnt-1-5 fnt-w-600 theme-color">Notes on this video</p>
+          <div className="pad-1 notes-container flex-column gap-1">
+            {videoNotesData[video_id] &&
+              videoNotesData[video_id].map((ele) => (
+                <div
+                  className="notes pad-0-5 flex ali-ce jst-sp-sb"
+                  key={ele._id}
+                >
+                  <div className="notes-text fnt-1-2 mar-r-auto">
+                    {ele.text}
+                  </div>
+                  <div className="notes-theme theme-color">{ele.time}</div>
+                </div>
+              ))}
+          </div>
         </div>
-        <hr />
-        <hr />
 
         <div className="mar-t-1 add-notes">
           <p className="fnt-1-5 fnt-w-600 theme-color">Take Notes</p>
-          <textarea className="pad-0-5 fnt-1-2" />
+          <textarea
+            value={notesText}
+            onChange={(e) => {
+              setNotesText(e.target.value);
+            }}
+            className="pad-0-5 fnt-1-2"
+          />
           <i
             onClick={() => {
-              console.log(videoPlayerRef.current.getCurrentTime());
+              if (token) {
+                addNotesHandler();
+              } else {
+                handleaddtoast({
+                  message: "Please First Login To Add Notes",
+                  type: "alert-dang",
+                });
+              }
             }}
             class="fas fa-plus-circle add-notes-btn theme-color fnt-2 cursor-pointer"
           ></i>
