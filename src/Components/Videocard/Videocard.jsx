@@ -104,18 +104,14 @@ export const Videocard = ({ ele }) => {
           {location === "/history" ? (
             <ul className="flex-column gap-0-5">
               <li>
-                <div className="flex mini-video-option gap-0-5">
-                  <i
-                    onClick={() => {
-                      removeSingleHistory(
-                        ele._id,
-                        handleaddtoast,
-                        setUser_Data
-                      );
-                      setShowOptions((pre_state) => !pre_state);
-                    }}
-                    className="fas fa-trash cursor-pointer"
-                  ></i>
+                <div
+                  onClick={() => {
+                    removeSingleHistory(ele._id, handleaddtoast, setUser_Data);
+                    setShowOptions((pre_state) => !pre_state);
+                  }}
+                  className="flex mini-video-option gap-0-5 cursor-pointer"
+                >
+                  <i className="fas fa-trash "></i>
                   <p>Remove from history</p>
                 </div>
               </li>
@@ -125,11 +121,11 @@ export const Videocard = ({ ele }) => {
               {location.substring(0, 5) === "/play" ? (
                 <ul className="flex-column gap-0-5">
                   <li>
-                    <div className="flex mini-video-option gap-0-5">
-                      <i
-                        onClick={removFromPlaylistHnalder}
-                        className="fas fa-trash cursor-pointer"
-                      ></i>
+                    <div
+                      onClick={removFromPlaylistHnalder}
+                      className="flex mini-video-option gap-0-5 cursor-pointer"
+                    >
+                      <i className="fas fa-trash "></i>
                       <p>Remove from Playlist</p>
                     </div>
                   </li>
@@ -140,26 +136,26 @@ export const Videocard = ({ ele }) => {
                     {user_data.liked_video.find(
                       (item) => item?._id === ele._id
                     ) ? (
-                      <div className="flex mini-video-option gap-0-5">
-                        <i
-                          onClick={() => {
-                            removeLikeVideo(
-                              ele._id,
-                              handleaddtoast,
-                              setUser_Data
-                            );
-                            setShowOptions((pre_state) => !pre_state);
-                          }}
-                          className="fas fa-thumbs-up cursor-pointer"
-                        ></i>
+                      <div
+                        onClick={() => {
+                          removeLikeVideo(
+                            ele._id,
+                            handleaddtoast,
+                            setUser_Data
+                          );
+                          setShowOptions((pre_state) => !pre_state);
+                        }}
+                        className="flex mini-video-option gap-0-5 cursor-pointer"
+                      >
+                        <i className="fas fa-thumbs-up "></i>
                         <p>Remove from Liked Video</p>
                       </div>
                     ) : (
-                      <div className="flex mini-video-option gap-0-5">
-                        <i
-                          onClick={likeHandler}
-                          className="far fa-thumbs-up cursor-pointer"
-                        ></i>
+                      <div
+                        onClick={likeHandler}
+                        className="flex mini-video-option gap-0-5 cursor-pointer"
+                      >
+                        <i className="far fa-thumbs-up "></i>
                         <p>Add to Like Video</p>
                       </div>
                     )}
@@ -168,46 +164,46 @@ export const Videocard = ({ ele }) => {
                     {user_data.watch_later.find(
                       (item) => item?._id === ele._id
                     ) ? (
-                      <div className="flex mini-video-option gap-0-5">
-                        <i
-                          onClick={() => {
-                            removeWatchLater(
-                              ele._id,
-                              handleaddtoast,
-                              setUser_Data
-                            );
-                            setShowOptions((pre_state) => !pre_state);
-                          }}
-                          className="fas fa-heart cursor-pointer"
-                        ></i>
+                      <div
+                        onClick={() => {
+                          removeWatchLater(
+                            ele._id,
+                            handleaddtoast,
+                            setUser_Data
+                          );
+                          setShowOptions((pre_state) => !pre_state);
+                        }}
+                        className="flex mini-video-option gap-0-5 cursor-pointer"
+                      >
+                        <i className="fas fa-heart "></i>
                         <p>Remove from Watch Later</p>
                       </div>
                     ) : (
-                      <div className="flex mini-video-option gap-0-5">
-                        <i
-                          onClick={watchLaterHandler}
-                          className="far fa-heart cursor-pointer cursor-pointer"
-                        ></i>
+                      <div
+                        onClick={watchLaterHandler}
+                        className="flex mini-video-option gap-0-5 cursor-pointer"
+                      >
+                        <i className="far fa-heart cursor-pointer "></i>
                         <p>Add to Watch Later</p>
                       </div>
                     )}
                   </li>
                   <li>
-                    <div className="flex mini-video-option gap-0-5">
-                      <i
-                        onClick={() => {
-                          if (token) {
-                            setShowPlaylistModal((pre_state) => !pre_state);
-                          } else {
-                            handleaddtoast({
-                              message:
-                                "Please First Login To Do Playlist operation",
-                              type: "alert-dang",
-                            });
-                          }
-                        }}
-                        className="fas fa-plus cursor-pointer"
-                      ></i>
+                    <div
+                      onClick={() => {
+                        if (token) {
+                          setShowPlaylistModal((pre_state) => !pre_state);
+                        } else {
+                          handleaddtoast({
+                            message:
+                              "Please First Login To Do Playlist operation",
+                            type: "alert-dang",
+                          });
+                        }
+                      }}
+                      className="flex mini-video-option gap-0-5 cursor-pointer"
+                    >
+                      <i className="fas fa-plus "></i>
                       <p>Add to Playlist</p>
                     </div>
                     {show_playlist_modal && (
