@@ -27,7 +27,7 @@
 ## Built With
 
 - [React JS](https://reactjs.org/)
-- [CerebrumUI Component Library](https://cerebrumui.netlify.app/)
+- [Pinakin Component Library](https://pinakin-ui.netlify.app/)
 - CSS
 - [React Router v6](https://reactrouter.com/)
 
@@ -65,9 +65,7 @@ Happy hacking!
 
 ---
 
-
-
-
 ## Preview
+
 
 https://user-images.githubusercontent.com/40332678/169648596-13f2eedc-a483-42da-8a34-760dfa61de18.mp4
