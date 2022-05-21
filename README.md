@@ -66,5 +66,3 @@ Happy hacking!
 ---
 
 ## Preview
-
-![VideoLibrary-ss](https://i.ibb.co/PtN1jKH/Screenshot-2022-05-17-104727.jpg)
