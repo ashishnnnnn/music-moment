@@ -27,7 +27,7 @@
 ## Built With
 
 - [React JS](https://reactjs.org/)
-- [CerebrumUI Component Library](https://cerebrumui.netlify.app/)
+- [Pinakin Component Library](https://pinakin-ui.netlify.app/)
 - CSS
 - [React Router v6](https://reactrouter.com/)
 
