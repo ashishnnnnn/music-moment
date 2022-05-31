@@ -3,6 +3,9 @@ import { Sliders, Footer } from "../../Components";
 import { useNavigate } from "react-router-dom";
 import { useFilter } from "../../Context/FilterContext";
 import { useVideoList } from "../../Context/VideosContext";
+import axios from "axios";
+import { useEffect } from "react";
+import { getRandomArray } from "../../Utils/getRandomArray";
 
 const cateogry_details = [
   {
@@ -31,11 +34,34 @@ export const Home = () => {
   let navigate = useNavigate();
   const { setVideoList } = useVideoList();
   const { setFilterState } = useFilter();
-
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios.get("/api/videos");
+        setVideoList(getRandomArray(data.videos));
+        localStorage.setItem("videos", JSON.stringify(data.videos));
+      } catch (e) {
+        setVideoList([]);
+      }
+    })();
+  }, []);
   return (
-    <div className="main-body home-body pad-t-2">
+    <div className="main-body home-body pad-t-2 ">
       <Sliders />
-      <div className="featured-head fnt-3 flex-center-column text-center fnt-w-500 gap-2 mar-b-2">
+      <button
+        to="/product-list"
+        className="btn btn-primary view-all-product fnt-1-2 cursor-pointer mar-c-auto flex"
+        onClick={() => {
+          setFilterState({
+            type: "CATEGORY",
+            payload: "ALL",
+          });
+          navigate("/explore");
+        }}
+      >
+        Explore
+      </button>
+      <div className="featured-head fnt-3 flex-center-column text-center fnt-w-500 gap-2 mar-t-1 mar-b-2">
         <p>Featured Singers</p>
         <div className="thick-bar"></div>
       </div>
@@ -48,7 +74,6 @@ export const Home = () => {
                   type: "CATEGORY",
                   payload: ele.name.toUpperCase(),
                 });
-                setVideoList([]);
                 navigate("/explore");
               }}
               className="card vertical-card"
