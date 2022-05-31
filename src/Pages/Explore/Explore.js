@@ -33,7 +33,7 @@ export const Explore = () => {
           </div>
         ))}
       </div>
-      <div className="video-grid flex-center-row gap-2">
+      <div className="video-grid flex-center-videos gap-2">
         {list_to_view.map((ele) => (
           <Videocard key={ele._id} ele={ele} />
         ))}
