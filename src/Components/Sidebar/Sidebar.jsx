@@ -1,7 +1,7 @@
 import "./Sidebar.css";
 import { useLocation, Link } from "react-router-dom";
-import { useVideoList } from "../../Context/VideosContext";
 import { useAuthContext } from "../../Context/AuthContext";
+import { useFilter } from "../../Context/FilterContext";
 import { getPageName } from "../../Utils/getPageName";
 
 const pages_name = {
@@ -43,9 +43,9 @@ const side_menu = [
 export const Sidebar = () => {
   const location = useLocation().pathname;
   const activeSideBar = pages_name[location];
-  const { setVideoList } = useVideoList();
   const { auth_state } = useAuthContext();
   const { token } = auth_state;
+  const { setFilterState } = useFilter();
   return (
     <div className="sidebar pad-2 flex-column gap-2">
       {side_menu.map((ele) => (
@@ -57,7 +57,10 @@ export const Sidebar = () => {
           } cursor-pointer`}
           onClick={() => {
             if (ele.name === "Explore") {
-              setVideoList([]);
+              setFilterState({
+                type: "CATEGORY",
+                payload: "ALL",
+              });
             }
           }}
         >
